@@ -1,4 +1,63 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Laravel LMS System
+
+This is a Learning Management System built using Laravel. It allows users to manage courses, lessons, and enrollments. It also includes authentication, role-based access, and more.
+
+---
+
+##  Features
+
+- User authentication (login)
+- Course and lesson management
+- User enrollment system
+- Responsive UI using Bootstrap
+- Feature tests for core functionalities
+
+---
+
+## Environment Setup
+
+###  Requirements
+
+- PHP >= 8.1
+- Composer
+- MySQL or other supported database
+- Laravel >= 11.x
+- Tailwind CSS
+- bootstrap
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/radwa-gamal30/LMS_system.git
+   cd LMS_system
+
+###  Installation Steps
+1. Install PHP Dependencies with Composer
+    - composer install
+2.  copy .env File from env.example
+    - cp .env.example .env
+3. generate App key
+4. Set Database Configuration
+    - DB_CONNECTION=mysql
+    - DB_HOST=127.0.0.1
+    - DB_PORT=3306
+    - DB_DATABASE=lms
+    - DB_USERNAME=root
+    - DB_PASSWORD=your_password
+5. run migration 
+    -- php artisan migrate
+6. Start the Server
+    -- php artisan serve
+
+
+
+
+
+
+
+
+
+
+<!-- <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
@@ -63,4 +122,4 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT). -->
