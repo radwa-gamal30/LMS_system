@@ -4,8 +4,8 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center text-secondary">Users</h1>
-                <a href="{{ route('users.create') }}" class="btn btn-styled mb-3">add new User</a>
+                <h1 class="text-center text-secondary">Students</h1>
+                <a href="{{ route('users.create') }}" class="btn btn-styled mb-3">add new Student</a>
                 <table class="table table-bordered table-striped">
                     <thead >
                         <tr class="text-center ">

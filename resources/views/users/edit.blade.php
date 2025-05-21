@@ -4,7 +4,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="text-center mt-5 text-secondary">Edit A User</h1>
+            <h1 class="text-center mt-5 text-secondary">Edit A Student</h1>
 
                 <form action="{{ route('users.update', $user->id) }}" method="POST">
 
@@ -12,7 +12,7 @@
                 @method('PUT')
                 @csrf
                 <div class="mb-3">
-                    <label for="name" class="form-label">User Name</label>
+                    <label for="name" class="form-label">Student Name</label>
                     <input type="text" name="name" id="name" class="form-control" value="{{ $user->name }}">
                     @error('name')
                         <div class="alert alert-danger mt-2">{{ $message }}</div>   
@@ -43,7 +43,7 @@
                     @enderror
 
                 </div>
-                <button type="submit" class="btn btn-success">Update User</button>
+                <button type="submit" class="btn btn-success">Update Student</button>
             </form>
         </div>
     </div>
