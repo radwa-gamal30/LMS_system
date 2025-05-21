@@ -18,33 +18,29 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
         $user = User::where('email', $credentials['email'])->first();
-       $token= $user->createToken('token')->plainTextToken;
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-           //if return json
-            if($request->wantsJson()){
+        if (!$user || !Auth::attempt($credentials)) {
+            return back()->withErrors([
+                'email' => 'The provided credentials do not match our records.',
+            ])->onlyInput('email');
+        }
+        $token = $user->createToken('token')->plainTextToken;
+            //if return json
+            if ($request->wantsJson()) {
                 return response()->json([
                     'message' => 'Login successful',
                     'token' => $token
                 ]);
             }
-            //if return view
+            //if view blade 
             return redirect()->intended('/home')
                 ->with('success', 'Login successfully');
-        }
-
-        return back()->withErrors([
-            'email' => 'The provided credentials do not match our records.',
-        ])->onlyInput('email');
+        
     }
     public function logout(Request $request)
     {
         $user = $request->user();
         $user->tokens()->delete();
         Auth::guard('web')->logout();
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
-        return redirect()->intended('/login')
-            ->with('success', 'Logout successfully');   
-}
+        return redirect()->intended('/login')->with('success', 'Logout successfully');
+    }
 }

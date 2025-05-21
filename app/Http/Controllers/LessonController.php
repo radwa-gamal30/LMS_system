@@ -9,9 +9,14 @@ use Illuminate\Http\Request;
 
 class LessonController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function __construct()
+    {
+        // $this->middleware('permission:show_lesson')->only('index');
+        $this->middleware('permission:create_lesson')->only('store', 'create');
+        $this->middleware('permission:edit_lesson')->only('update', 'edit');
+        $this->middleware('permission:delete_lesson')->only('destroy');
+
+    }
     public function index()
     {
         $lessons = Lesson::all();

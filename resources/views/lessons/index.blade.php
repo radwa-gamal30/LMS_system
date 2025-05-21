@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 @if (isset($course))
                 <h2 class="text-center">Lessons for: {{ $course->title }}</h2>
-                <a href="{{ route('courses.lessons.create', $course) }}" class="btn btn-styled  mb-3">+ Add Lesson</a>
+                <a href="{{ route('courses.lessons.create', $course) }}" class="btn btn-styled  mb-3">+ Add new Lesson</a>
             @else
                 <h2 class="text-center">All Lessons</h2>
             @endif

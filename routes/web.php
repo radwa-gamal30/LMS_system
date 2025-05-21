@@ -20,11 +20,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//login route
+Route::get('/login', function(){return view('auth.login');})->name('login');
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/', function () {
-    return view('welcome');
-});
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');  
+//     Route::get('/', function () {
+//     return view('welcome');
+// });
 Route::get('/home', function () {
     return view('home.index');
 })->name('home.index');
@@ -36,12 +40,8 @@ Route::resource('/courses', CourseController::class);
 Route::get('courses/{course}/lessons', [LessonController::class, 'customIndex'])->name('courses.lessons');
 
 Route::resource('/enrollments', EnrollmentController::class);
-Route::get('/enrollments/create/{user}', [EnrollmentController::class,'create'])->name('enrollments.create');
+Route::get('/enrollments/create/{user}', [EnrollmentController::class,'create'])->name('users.enrollments.create');
 Route::resource('/lessons', LessonController::class);
 Route::get('/lessons/{course}/lessons', [LessonController::class,'create'])->name('courses.lessons.create');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');  
 });
-//login route
-Route::get('/login', function(){return view('auth.login');})->name('login');
-Route::post('/login', [AuthController::class, 'login']);
 
