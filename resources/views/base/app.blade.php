@@ -18,6 +18,14 @@
       background-color: #8f3232;
 
         }
+        .panel-body{
+            /* icon-image */
+            display: flex;
+            align-items: center;
+            height: 50px;
+            width: 50px; 
+            
+        }
         .btn{
             color: #ffff;
         }
@@ -28,6 +36,9 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top">
         <div class="container">
+            <div class="panel-body">
+                <img src="{{ asset('/storage/images/png-transparent.png') }}" style="max-height: 40px;">
+            </div>
             <a class="navbar-brand" href="#">Learning | Good Mind</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>

@@ -10,7 +10,8 @@
         <style>
                body {
       background: #f0f2f5;
-      background-image: url('../storage/images/loginbackgd.avif');
+      background-image: url('/storage/images/Back-to-school-background.jpg');
+
       background-size:cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -24,8 +25,9 @@
       padding: 2.5rem;
       border-radius: 16px;
       box-shadow: 0 0 20px rgba(0,0,0,0.1);
-      width: 100%;
-      max-width: 420px;
+      width: 30vw;
+      /* max-width: 420px; */
+      height: 50vh;
     }
     h3 {
       color: #8f3232;
