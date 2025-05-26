@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->foreignId('course_id')->constrained('courses')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->string('cost')->nullable();
+            $table->double('paid')->nullable();
+            $table->double('remaining')->nullable();
+            $table->string('method')->nullable(); // e.g., 'credit_card', 'paypal', 'bank_transfer'
             $table->timestamps();
         });
     }

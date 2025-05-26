@@ -26,7 +26,7 @@
                 @enderror
 
                 </div>
-                <button type="submit" class="btn btn-success">update Course</button>
+                <button type="submit" class="btn btn-styled mx-auto d-block">update</button>
             </form>
         </div>
     </div>

@@ -24,6 +24,9 @@ class EnrollmentRequest extends FormRequest
         return [
             'user_id' => 'required|exists:users,id',
             'course_id' => 'required|exists:courses,id',
+            'paid' => 'nullable|numeric|min:0|nullable',
+            'remaining' => 'nullable|numeric|min:0|nullable',
+            'method' => 'nullable|string|max:50', // e.g., 'credit_card', 'paypal', 'bank_transfer'
         ];
     }
 }

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->enum('is_admin',['yes','no'])->default('no');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->double('balance')->default(0.00);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -4,7 +4,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center mt-5 text-secondary">Add New Lesson</h1>
+                <h1 class="text-center mt-5 text-secondary">add new  lesson</h1>
                 <form action="{{ route('lessons.store') }}" method="POST">
                     @csrf
                     <div class="form-group mb-3">
@@ -44,7 +44,7 @@
                         
                     @enderror
                     </div>
-                    <button type="submit" class="btn btn-styled mx-auto d-block">Create Lesson</button>
+                    <button type="submit" class="btn btn-styled mx-auto d-block">create</button>
                 </form>
             </div>
         </div>

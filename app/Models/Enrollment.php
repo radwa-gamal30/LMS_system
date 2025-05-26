@@ -10,7 +10,7 @@ class Enrollment extends Model
     use HasFactory;
     //we can add attributes such duration, start_date, end_date, etc
     //to the enrollment table
-    protected $fillable = ['user_id', 'course_id'];
+    protected $fillable = ['user_id', 'course_id', 'paid','remaining','method'];
     public function user()
     {
         return $this->belongsTo(User::class,'user_id');

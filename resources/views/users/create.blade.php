@@ -4,13 +4,20 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center mt-5 text-secondary">Add New Student</h1>
+                <h1 class="text-center mt-5 text-secondary">add new student</h1>
                 <form action="{{ route('users.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">user Name</label>
                         <input type="text" name="name" id="name" class="form-control" required>
                         @error('name')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="balance" class="form-label">Balance</label>
+                        <input type="number" name="balance" id="balance" class="form-control" required>
+                        @error('balance')
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
@@ -49,7 +56,7 @@
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-success">Create user</button>  
+                    <button type="submit" class="btn btn-styled mx-auto d-block">create</button>  
                 </form>
             </div>
         </div>

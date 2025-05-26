@@ -5,8 +5,8 @@ create new enrollment
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center text-secondary">Add New Enrollment</h1>
-                <form action="{{ route('enrollments.store') }}" method="POST">
+                <h1 class="text-center text-secondary">add new enrollment</h1>
+                <form id="choosePaymentForm" method="GET">
                     @csrf
                         <div class="form-group mb-3">
                         <input type="hidden" name="user_id" value="{{ $user->id }}">
@@ -18,7 +18,7 @@ create new enrollment
                     </div>
                     <div class="form-group mb-3">
                         <label for="course_id">Course</label>
-                        <select name="course_id" id="course_id" class="form-control" required>
+                        <select name="course_id" id="courseSelect" class="form-control" required>
                             <option value="">Select Course</option>
                             @foreach ($courses as $course)
                                 <option value="{{ $course->id }}">{{ $course->title }}</option>
@@ -28,8 +28,24 @@ create new enrollment
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-styled mx-auto d-block">Create Enrollment</button>
-
-
-                
+                    <button type="submit" class="btn btn-styled mx-auto d-block">choose payment</button>
                 </form>
+            </div>
+        </div>
+    </div>
+{{-- ------------------------------------------------------------------ --}}
+    <script>
+        document.getElementById('choosePaymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const courseId = document.getElementById('courseSelect').value;
+            const userId = '{{ $user->id }}';
+            if (!courseId) {
+                alert('Please select a course');
+                return;
+            }
+            const route = `/enrollments.choose-payment.create/${userId}/${courseId}`;
+            window.location.href = route;
+        });
+    </script>
+
+@endsection

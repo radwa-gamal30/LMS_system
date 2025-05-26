@@ -72,4 +72,17 @@ class EnrollmentController extends Controller
         $enrollment->delete();
         return redirect()->route('enrollments.index')->with('success', 'Enrollment deleted successfully.');
     }
+    private function suggestPaymentMethod($user, $course)
+{
+    $income = $user->balance ?? 0;
+    $price = $course->price ?? 0;
+
+    if ($price > ($income * 0.5)) {
+        return 'Installments';
+    } elseif ($price > ($income * 0.3)) {
+        return 'Credit Card';
+    } else {
+        return 'Wallet or Debit Card';
+    }
+}
 }

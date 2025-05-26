@@ -28,7 +28,23 @@
                             <div class="alert alert-danger mt-2">{{ $message }}</div>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-styled mx-auto d-block">Update Enrollment</button>
+                      {{-- paid --}}
+                      <div class="form-group mb-3">
+                        <label for="paid">Paid</label>
+                        <input type="number" name="paid" id="paid" class="form-control" value="{{ $enrollment->paid }}">
+                        @error('paid')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="remaining">Remaining</label>
+                        <input type="number" name="remaining" id="remaining" class="form-control" value="{{ $enrollment->remaining }}" >
+                        @error('paid')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>
+                        @enderror
+                    </div>
+
+                    <button type="submit" class="btn btn-styled mx-auto d-block">update</button>
                 </form>
             </div>
         </div>

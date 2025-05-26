@@ -4,7 +4,7 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center mt-5 text-secondary">Add New Course</h1>
+                <h1 class="text-center mt-5 text-secondary">add new course</h1>
                 <form action="{{ route('courses.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
@@ -23,7 +23,51 @@
                         
                     @enderror
                     </div>
-                    <button type="submit" class="btn btn-success">Create Course</button>
+                    {{-- duration --}}
+                    <div class="mb-3">
+                        <label for="duration" class="form-label">Duration (in hours)</label>
+                        <input type="number" name="duration" id="duration" class="form-control" required>
+                        @error('duration')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>   
+                            
+                        @enderror   
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">price</label>
+                        <input type="number" name="price" id="price" class="form-control" required>
+                        @error('price')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>   
+                            
+                        @enderror
+                    </div>
+                    <div class="mb-3">
+                        <label for="level" class="form-label">price</label>
+                        <select name="level" id="level" class="form-control">
+                            <option value="">Select Level</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        </select>
+                        @error('level')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>   
+                            
+                        @enderror
+                    </div>
+                    
+                    {{-- <div class="mb-3">
+                        <label for="level" class="form-label">level</label>
+                        <select name="level" id="level" class="form-control" required>
+                            <option value="">Select Level</option>
+                            <option value="beginner">Beginner</option>
+                            <option value="intermediate">Intermediate</option>
+                            <option value="advanced">Advanced</option>
+                        @error('title')
+                            <div class="alert alert-danger mt-2">{{ $message }}</div>   
+                            
+                        @enderror
+                    </div> --}}
+
+                    <button type="submit" class="btn btn-styled mx-auto d-block">create</button>
                 </form>
             </div>
         </div>

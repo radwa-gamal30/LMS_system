@@ -4,7 +4,7 @@
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="text-center mt-5 text-secondary">Edit A Student</h1>
+            <h1 class="text-center mt-5 text-secondary">edit student</h1>
 
                 <form action="{{ route('users.update', $user->id) }}" method="POST">
 
@@ -18,6 +18,13 @@
                         <div class="alert alert-danger mt-2">{{ $message }}</div>   
                     @enderror
 
+                </div>
+                <div class="mb-3">
+                    <label for="balance" class="form-label">Balance</label>
+                    <input type="number" name="balance" id="balance" class="form-control"  value="{{ $user->balance }}">
+                    @error('balance')
+                        <div class="alert alert-danger mt-2">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -43,7 +50,7 @@
                     @enderror
 
                 </div>
-                <button type="submit" class="btn btn-success">Update Student</button>
+                <button type="submit" class="btn btn-styled mx-auto d-block">update</button>
             </form>
         </div>
     </div>
