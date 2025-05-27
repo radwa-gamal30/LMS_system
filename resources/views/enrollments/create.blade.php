@@ -33,9 +33,11 @@ create new enrollment
             </div>
         </div>
     </div>
-{{-- ------------------------------------------------------------------ --}}
+{{--------------------------------------- JS Script -----------------------------------}}
     <script>
-        document.getElementById('choosePaymentForm').addEventListener('submit', function(e) {
+       const routeBase="{{ route('enrollments.choose-payment.create', ['user' => '__USER__', 'course' => '__COURSE__']) }}";
+      
+       document.getElementById('choosePaymentForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const courseId = document.getElementById('courseSelect').value;
             const userId = '{{ $user->id }}';
@@ -43,7 +45,8 @@ create new enrollment
                 alert('Please select a course');
                 return;
             }
-            const route = `/enrollments.choose-payment.create/${userId}/${courseId}`;
+            const route = routeBase.replace('__USER__', userId).replace('__COURSE__', courseId);
+            // Redirect to the payment selection page with the selected course and user
             window.location.href = route;
         });
     </script>

@@ -23,7 +23,10 @@ class CourseRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'description' => '  nullable|string',
+            'price' => 'required|numeric|min:0',
+            'duration' => 'required|integer|min:1', // Duration in hours or days, depending on your application
+            'level' => 'required|string|in:beginner,intermediate,advanced', // Course level
         ];
     }
 }

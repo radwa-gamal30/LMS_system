@@ -27,7 +27,7 @@ class CoursePamentController extends Controller
             'method' => 'required|string|max:255', // e.g., 'credit_card', 'paypal', 'bank_transfer'
             'paid' => 'required|numeric|min:0',
             'remaining' => 'required|numeric|min:0',
-            
+                
         ]);
       
         Enrollment::create($data);

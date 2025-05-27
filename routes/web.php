@@ -42,7 +42,7 @@ Route::get('courses/{course}/lessons', [LessonController::class, 'customIndex'])
 
 Route::resource('/enrollments', EnrollmentController::class);
 Route::get('/enrollments/create/{user}', [EnrollmentController::class,'create'])->name('users.enrollments.create');
-Route::get('/enrollments-choose-payment/{userId}/{courseId}',[ CoursePamentController::class,'create'])->name('enrollments.choose-payment.create');
+Route::get('/enrollments-choose-payment/{user}/{course}',[ CoursePamentController::class,'create'])->name('enrollments.choose-payment.create');
 Route::post('/enrollments-choose-payment',[ CoursePamentController::class,'store'])->name('enrollments.choose-payment.store');
 Route::resource('/lessons', LessonController::class);
 Route::get('/lessons/{course}/lessons', [LessonController::class,'create'])->name('courses.lessons.create');

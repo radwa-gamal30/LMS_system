@@ -17,6 +17,7 @@
                     </div>
                   @endif
                     <input type="hidden" name="user_id" value="{{ $user->id }}">
+
                     <input type="hidden" name="course_id" value="{{ $course->id }}">
                     {{-- @dd($user, $course) --}}
                     <div class="mb-3">
@@ -56,14 +57,10 @@
     <script>
         document.getElementById('paid').addEventListener('input', function() {
             const paid = parseFloat(this.value) || 0;
+            // const course = {{$course}};
             const coursePrice = {{$course->price}}; 
             const remaining = coursePrice - paid;
-            // if (paid > coursePrice) {
-            //     alert("Paid amount cannot be more than course price.");
-            //     this.value = coursePrice;
-            //     document.getElementById('remaining').value = 0;
-            //     return;
-            // }
+            console.log("Paid:", paid, "Remaining:", remaining, "Course Price:", coursePrice);
             document.getElementById('remaining').value = remaining >= 0 ? remaining : 0;
         });
     </script>
