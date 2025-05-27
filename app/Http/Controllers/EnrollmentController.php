@@ -37,12 +37,12 @@ class EnrollmentController extends Controller
     }
 
  
-    public function store(EnrollmentRequest $request)
-    {
-        $data=$request->validated();
-        Enrollment::create($data);
-        return redirect()->route('users.index')->with('success', 'Enrollment created successfully.');
-    }
+    // public function store(EnrollmentRequest $request)
+    // {
+    //     $data=$request->validated();
+    //     Enrollment::create($data);
+    //     return redirect()->route('users.index')->with('success', 'Enrollment created successfully.');
+    // }
 
     public function show(Enrollment $enrollment)
     {
@@ -69,20 +69,9 @@ class EnrollmentController extends Controller
   
     public function destroy(Enrollment $enrollment)
     {
+        $user=$enrollment->user;
         $enrollment->delete();
-        return redirect()->route('enrollments.index')->with('success', 'Enrollment deleted successfully.');
+        return redirect()->route('users.enrollments', ['user' => $user->id])->with('success', 'Enrollment deleted successfully.');
     }
-    private function suggestPaymentMethod($user, $course)
-{
-    $income = $user->balance ?? 0;
-    $price = $course->price ?? 0;
-
-    if ($price > ($income * 0.5)) {
-        return 'Installments';
-    } elseif ($price > ($income * 0.3)) {
-        return 'Credit Card';
-    } else {
-        return 'Wallet or Debit Card';
-    }
-}
+    
 }
