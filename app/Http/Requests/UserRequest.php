@@ -30,6 +30,7 @@ class UserRequest extends FormRequest
                 'password' => ['nullable', 'string', 'min:8', 'confirmed'],
                 'phone'=> ['nullable', 'numeric','unique:users,phone,' . $this->user->id],
                 'address'=> ['nullable', 'string', 'max:255'],
+                'balance' => ['nullable', 'numeric'],
             ];
         }
         // For creating a new user
